@@ -1,4 +1,6 @@
 # Udacity - Intro to Machine Learning
+
+View full project [here](https://github.com/missmariss31/enron/blob/master/enronproject.md)
 __________________________________________________________________________
 
 ## ENRON SCANDAL
