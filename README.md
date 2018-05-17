@@ -29,7 +29,7 @@ __________________________________________________________________________
 <a id='top'></a>
 
 Table of Contents
-<br><br>
+
 [Project Goal](#Goal) | 
 <br>
 [Dataset Questions](#Questions) | 
@@ -40,20 +40,31 @@ Table of Contents
 <br>
 [Explore Features](#Features) |
 <br>
-- [Salary](#Salary)
-- [Bonus](#Bonus)
-- [Total Payments](#Total Payments)
-- [Exercised Stock Options](#Stock Options)
-- [Total Stock Value](#Total Stock Value)
-- [Total Bonus and Exercised Stock Options](#Total BE)
-- [Total Payments and Stock Value in Millions](#Total Millions)
-- [Shared Receipt with POI](#Shared Receipt)
-- [To Messages](#To Messages)
-- [From Messages](#From Messages)
-- [Fraction to POI](#FTP)
-- [Fraction from POI](#FFP)
 
-<br>
+[Salary](#Salary)
+
+[Bonus](#Bonus)
+
+[Total Payments](#TotalPayments)
+
+[Exercised Stock Options](#StockOptions)
+
+[Total Stock Value](#TotalStockValue)
+
+[Total Bonus and Exercised Stock Options](#TotalBE)
+
+[Total Payments and Stock Value in Millions](#TotalMillions)
+
+[Shared Receipt with POI](#SharedReceipt)
+
+[To Messages](#ToMessages)
+
+[From Messages](#FromMessages)
+
+[Fraction to POI](#FTP)
+
+[Fraction from POI](#FFP)
+
 [Outliers](#Outliers) | 
 <br>
 [Transform, Select, and Scale](#TSS) | 
@@ -1484,7 +1495,7 @@ enron[(enron['bonus']>6000000)][['name','salary','bonus','exercised_stock_option
 
 
 
-<a id='Total Payments'></a>
+<a id='TotalPayments'></a>
 
 ### Total Payments
 
@@ -1575,7 +1586,7 @@ sns.boxplot(x='poi',y='total_payments',data=kl_not_in)
 
 Well, at least now we can see the boxplots more clearly.  There's not much of a difference between POI and non-POI here when we take Ken Lay out, so total_payments probably won't be a feature we'll use.
 
-<a id='Stock Options'></a>
+<a id='StockOptions'></a>
 
 ### Exercised Stock Options
 
@@ -1613,7 +1624,7 @@ sns.boxplot(x='poi',y='exercised_stock_options',data=enron)
 
 Exercised stock options definitely looks to be higher among POIs, so this will definitely be a feature to include in our list of features for our algorithm.  
 
-<a id='Total BE'></a>
+<a id='TotalBE'></a>
 
 ### Total Bonus and Exercised Stock Options
 
@@ -1651,7 +1662,7 @@ sns.boxplot(x='poi',y='total_be',data=enron)
 
 Total Bonus and Exercised Stock Options might be useful, but it might also just add to the noise.  So, maybe we won't use this one.  
 
-<a id='Total Stock Value'></a>
+<a id='TotalStockValue'></a>
 
 ### Total Stock Value
 
@@ -1689,7 +1700,7 @@ sns.boxplot(x='poi',y='total_stock_value',data=enron)
 
 Total stock value for POIs on average is much higher than non-POIs.  This feature is another good option for our POI identifier.
 
-<a id='Total Millions'></a>
+<a id='TotalMillions'></a>
 
 ### Total Payments and Stock Value in Millions
 
@@ -1745,7 +1756,7 @@ sns.boxplot(x='poi',y='total_millions',data= kl_not_in)
 
 Hmmmm, maybe we didn't need to add this feature.  We can look closer by using lmplot and pairplot later on in our analysis.
 
-<a id='Shared Receipt'></a>
+<a id='SharedReceipt'></a>
 
 ### Shared Receipt with POI
 
@@ -1781,7 +1792,7 @@ sns.boxplot(x='poi',y='shared_receipt_with_poi',data= enron)
 ![png](output_70_1.png)
 
 
-<a id='To Messages'></a>
+<a id='ToMessages'></a>
 
 ### To Messages
 
@@ -1817,7 +1828,7 @@ sns.boxplot(x='poi',y='to_messages',data= enron)
 ![png](output_73_1.png)
 
 
-<a id='From Messages'></a>
+<a id='FromMessages'></a>
 
 ### From Messages
 
