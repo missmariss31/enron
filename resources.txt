@@ -2,10 +2,11 @@ Resources used in the enron project include
 
 Udacity Intro to Machine Learning Lesson and Project Scripts
 Python Data Science Handbook by Jake VanderPlas
-Python Documentation for Decision Tree and KNeighbors Classifiers 
-Documentation for Pandas and Seaborn
+Python Documentation for all modules used in project
+Documentation and examples for Pandas and Seaborn
 Confusion Matrix http://scikit-plot.readthedocs.io/en/stable/Quickstart.html
 Wikipedia https://en.wikipedia.org/wiki/Enron_scandal
+Blog Post http://blog.exsilio.com/all/accuracy-precision-recall-f1-score-interpretation-of-performance-measures/
 
 “I hereby confirm that this submission is my work. I have cited above the origins 
 of any parts of the submission that were taken from Websites, books, forums, 

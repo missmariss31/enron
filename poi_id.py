@@ -6,11 +6,12 @@ sys.path.append("../tools/")
 
 from feature_format import featureFormat, targetFeatureSplit
 from tester import dump_classifier_and_data
+import numpy as np
 
 ### Task 1: Select what features you'll use.
 ### features_list is a list of strings, each of which is a feature name.
 ### The first feature must be "poi".
-features_list = ['poi','bonus','exercised_stock_options','fraction_to_poi'] # You will need to use more features
+features_list = ['poi','bonus','exercised_stock_options','fraction_to_poi'] 
 
 ### Load the dictionary containing the dataset
 with open("final_project_dataset.pkl", "r") as data_file:
@@ -18,8 +19,15 @@ with open("final_project_dataset.pkl", "r") as data_file:
 
 ### Task 2: Remove outliers
 data_dict.pop('TOTAL',0)
+
+#remove datapoints that create noise
+data_dict.pop('LOCKHART EUGENE E',0)
+
+#take out all 'loan_advances' because of missing values
+for name in data_dict:
+    data_dict[name].pop('loan_advances',0)
+    
 ### Task 3: Create new feature(s)
-### Create new feature(s)
 
 #add fraction of emails from and to poi
 #idea for this added feature taken from course materials
@@ -63,9 +71,14 @@ labels, features = targetFeatureSplit(data)
 # Provided to give you a starting point. Try a variety of classifiers.
 # See full process in https://github.com/missmariss31/enron/blob/master/enronproject.md
 
-from sklearn.cross_validation import train_test_split
-features_train, features_test, labels_train, labels_test = \
-    train_test_split(features, labels, test_size=0.3, random_state=42)
+from sklearn.cross_validation import StratifiedShuffleSplit
+
+X = np.array(features)
+y = np.array(labels)
+sss = StratifiedShuffleSplit(labels, n_iter=1000, test_size=0.3, random_state=42)      
+for train_index, test_index in sss:
+    features_train, features_test = X[train_index], X[test_index]
+    labels_train, labels_test = y[train_index], y[test_index]
     
 from sklearn.neighbors import KNeighborsClassifier
 
